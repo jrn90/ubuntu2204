@@ -6,13 +6,7 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-print_info() {
-	printf "\033[32m[INFO]\033[0m %s\n" "$1"
-}
-
-DOWNLOAD_DIR=/tmp/installs
-print_info "Creating download directory"
-mkdir -p "${DOWNLOAD_DIR}" >/dev/null
+source common.sh
 
 print_info "Running package update"
 sudo apt-get update -qq >/dev/null
@@ -20,23 +14,27 @@ sudo apt-get update -qq >/dev/null
 print_info "Installing a bunch of packages"
 sudo apt-get install -y apt-transport-https \
   build-essential \
+  cmake \
   curl \
   flatpak \
+  gettext \
   gnome-screenshot \
   htop \
   libssl-dev \
+  ninja-build \
   nmap \
   openssl \
   pkg-config \
-  python-is-python3 >/dev/null
+  python-is-python3 \
+  unzip >/dev/null
 
-# Docker
-print_info "Installing Docker"
-for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do 
-  sudo apt-get remove -qq $pkg >/dev/null;
-done
-curl -fsSL https://get.docker.com -o get-docker.sh
-sudo sh ./get-docker.sh >/dev/null
+# # Docker
+# print_info "Installing Docker"
+# for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do 
+#   sudo apt-get remove -qq $pkg >/dev/null;
+# done
+# curl -fsSL https://get.docker.com -o get-docker.sh
+# sudo sh ./get-docker.sh >/dev/null
 
 # Rust
 print_info "Installing Rust"
