@@ -36,6 +36,11 @@ sudo apt-get install -y apt-transport-https \
 # curl -fsSL https://get.docker.com -o get-docker.sh
 # sudo sh ./get-docker.sh >/dev/null
 
+# Dropbox
+print_info "Installing Dropbox"
+curl --silent --show-error --location "https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2020.03.04_amd64.deb" --output "${DOWNLOAD_DIR}"/dropbox.deb
+sudo apt-get install -qq -y "${DOWNLOAD_DIR}"/dropbox.deb >/dev/null
+
 # Obsidian
 print_info "Installing Obsidian"
 curl --silent --show-error --location "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.5.8/obsidian_1.5.8_amd64.deb" --output "${DOWNLOAD_DIR}"/obsidian.deb
