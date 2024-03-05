@@ -36,6 +36,11 @@ sudo apt-get install -y apt-transport-https \
 # curl -fsSL https://get.docker.com -o get-docker.sh
 # sudo sh ./get-docker.sh >/dev/null
 
+# Obsidian
+print_info "Installing Obsidian"
+curl --silent --show-error --location "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.5.8/obsidian_1.5.8_amd64.deb" --output "${DOWNLOAD_DIR}"/obsidian.deb
+sudo apt-get install -qq -y "${DOWNLOAD_DIR}"/obsidian.deb >/dev/null
+
 # Rust
 print_info "Installing Rust"
 curl --silent --show-error --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y >/dev/null
