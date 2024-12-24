@@ -26,6 +26,7 @@ sudo apt-get install -y apt-transport-https \
   openssl \
   pkg-config \
   python-is-python3 \
+  ripgrep \
   unzip >/dev/null
 
 # # Docker
