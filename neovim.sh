@@ -15,8 +15,8 @@ git clone --quiet https://github.com/neovim/neovim "${NEOVIM_DIR}" >/dev/null
 
 cd "${NEOVIM_DIR}"
 
-print_info "Checking out v0.9.5"
-git checkout v0.9.5 >/dev/null
+print_info "Checking out v0.10.3"
+git checkout v0.10.3 >/dev/null
 
 print_info "Build release target"
 make CMAKE_BUILD_TYPE=RelWithDebInfo >/dev/null
